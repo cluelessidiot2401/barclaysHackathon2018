@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="com.diligents.repository.util.LoginDetailsRowMapper"/>
+<fullyQualifiedTypeName name="com.diligents.model.barclaysUsers.UserInfo"/>
+<fullyQualifiedTypeName name="com.diligents.model.barclaysUsers.LoginDetails"/>
+<fullyQualifiedTypeName name="java.lang.Object"/>
+<fullyQualifiedTypeName name="org.springframework.ui.ModelMap"/>
+<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PathVariable"/>
+<fullyQualifiedTypeName name="com.diligents.model.barclaysUsers.UserAccount"/>
+<fullyQualifiedTypeName name="com.diligents.repository.util.UserAccountRowMapper"/>
+<fullyQualifiedTypeName name="com.diligents.model.barclaysUsers.Account"/>
+<fullyQualifiedTypeName name="com.diligents.repository.util.AccountRowMapper"/>
+<fullyQualifiedTypeName name="java.time.format.DateTimeFormatter"/>
+<fullyQualifiedTypeName name="java.time.LocalDate"/>
+<fullyQualifiedTypeName name="java.text.DateFormat"/>
+<fullyQualifiedTypeName name="java.text.SimpleDateFormat"/>
+<fullyQualifiedTypeName name="java.util.Calendar"/>
+<fullyQualifiedTypeName name="java.lang.Exception"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="com.diligents.model.barclaysUsers.Transaction"/>
+<fullyQualifiedTypeName name="com.diligents.repository.util.TransactionRowMapper"/>
+</qualifiedTypeNameHistroy>

@@ -1,0 +1,33 @@
+insert into branchInfo(branchName,branchAddress,branchCode) values("Barclays_Katraj","Katraj","Katraj0019");
+insert into branchInfo(branchName,branchAddress,branchCode) values("Barclays_Camp","Opp. Camp","Camp0010");
+insert into branchInfo(branchName,branchAddress,branchCode) values("Barclays_Kothrud","Kothrud bus_stop","Kothrud021");
+insert into branchInfo(branchName,branchAddress,branchCode) values("Barclays_Kothrud","Kothrud MIT college","MITCOE0221");
+insert into branchInfo(branchName,branchAddress,branchCode) values("Barclays_Aundh","Aundh PB road","AundhPB224");
+insert into branchInfo(branchName,branchAddress,branchCode) values("Barclays_Nigdi","Nigdi Circle","Nigdi00121");
+insert into branchInfo(branchName,branchAddress,branchCode) values("Barclays_Pimpri","Pimpri Chowk","Pimpri0001");
+insert into branchInfo(branchName,branchAddress,branchCode) values("Barclays_Hadapsar","Hadapsar Bridge","Hadapsar34");
+insert into branchInfo(branchName,branchAddress,branchCode) values("Barclays_Station","Pune station","Punest1256");
+insert into branchInfo(branchName,branchAddress,branchCode) values("Barclays_Highstreet","Baner High Street","Highst7801");
+
+insert into account values("121234873901",3,"saving",0);
+ insert into account values("121259633901",5,"saving",0);
+ insert into account values("121259695123",7,"saving",0);
+ insert into account values("1212598439",10,"saving",0);
+ insert into account values("1212842361",10,"current",0);
+ insert into account values("1212847412",1,"current",0);
+ insert into account values("1212365489",4,"current",0);
+ insert into account values("1212360000",3,"current",0);
+ insert into account values("1212368543",1,"saving",0);
+ insert into account values("1212369951",2,"saving",0);
+ insert into account values("1212364414",6,"saving",0);
+ insert into account values("1212377403",5,"saving",0);
+ insert into account values("1212355141",1,"current",0);
+ insert into account values("1212300465",4,"current",0);
+ insert into account values("1212309502",3,"current",0);
+ insert into account values("1212774101",6,"current",0);
+ insert into account values("1212745219",2,"saving",0);
+ insert into account values("1212700203",9,"saving",0);
+ insert into account values("1212555203",5,"saving",0);
+ insert into account values("1212548133",7,"saving",0);
+
+alter table account add inUse tinyint default 0 not null;

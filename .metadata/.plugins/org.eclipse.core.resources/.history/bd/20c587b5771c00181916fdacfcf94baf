@@ -1,0 +1,13 @@
+package com.diligents.model.barclaysUsers;
+
+import javax.validation.constraints.NotNull;
+
+public class UserAccount {
+	
+	@NotNull
+	private int uId;
+	
+	@NotNull
+	private String accNo;
+	
+}

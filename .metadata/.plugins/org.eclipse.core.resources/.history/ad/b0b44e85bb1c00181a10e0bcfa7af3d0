@@ -1,0 +1,19 @@
+package com.diligents.service.util;
+
+import javax.validation.Valid;
+
+import com.diligents.model.barclaysUsers.LoginDetails;
+
+public class LoginDetailsValidator {
+
+	public static boolean isValid(@Valid LoginDetails loginDetails) {
+		System.out.println("from LoginDetailsValidator");
+
+		if(loginDetails.getuPassword()==null)	return false;
+		if(loginDetails.getuName()==null)	return false;
+		System.out.println("in logindetails Validator");
+		
+		return true;
+	}
+	
+}

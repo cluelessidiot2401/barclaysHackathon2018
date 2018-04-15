@@ -1,0 +1,39 @@
+body
+{
+background:url(pic30.jpg) no-repeat center fixed; 
+background-size: cover;
+}
+
+div.transbox {
+  
+  background-color: #000000;
+  border: 1px solid black;
+  top:20px;
+  
+  opacity: 0.7;
+  filter: alpha(opacity=100); /* For IE8 and earlier */
+}
+fieldset {
+font-family: verdana, arial, helvetica, sans-serif; 
+color: white;
+}
+
+legend {
+	border: 1px solid #4A4A4A; 
+	background-color: white; 
+	color: white;
+	font-weight: bold;
+	padding: 0.3em 0.8em;
+opacity: 0.5;
+}
+
+.selectpicker
+{
+color:black;
+}
+
+h3{
+color:#eee;
+}
+
+

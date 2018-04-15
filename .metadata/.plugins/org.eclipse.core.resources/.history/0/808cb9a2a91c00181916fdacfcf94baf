@@ -1,0 +1,26 @@
+package com.diligents.repository;
+
+import java.util.List;
+
+import javax.validation.Valid;
+
+import com.diligents.model.barclaysUsers.Login;
+import com.diligents.model.barclaysUsers.LoginDetails;
+import com.diligents.model.barclaysUsers.UserInfo;
+
+public interface UsersRepository {
+
+	UserInfo addUser(@Valid UserInfo userInfo);
+
+	List<UserInfo> getUsersByEmailId(String emailId);
+
+	int getUserIdByEmailId(String emailId);
+
+	Login addUser(@Valid Login login);
+
+	UserInfo getUser(Integer id);
+
+	LoginDetails validateForUser(UserInfo userInfo1);
+
+
+}

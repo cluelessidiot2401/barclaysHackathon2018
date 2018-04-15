@@ -1,0 +1,26 @@
+package com.witty4.repository;
+
+import java.util.List;
+
+import javax.validation.Valid;
+
+import com.witty4.model.users.UserInfo;
+
+public interface UsersRepository {
+
+	List<UserInfo> getUsersByName(String userName);
+
+	List<UserInfo> getUsersByEmailId(String emailId);
+
+	UserInfo addUser(@Valid UserInfo userInfo);
+
+	UserInfo getUser(Integer id);
+
+	UserInfo getUserByNameAndPasswd(String userName, String passwd);
+
+	UserInfo getValidLogin(String userName, String passwd);
+
+	int changePass(String uname,String cpass,String npass);
+	
+	int changeMob(String uname,String mcpass,String nmob);
+}

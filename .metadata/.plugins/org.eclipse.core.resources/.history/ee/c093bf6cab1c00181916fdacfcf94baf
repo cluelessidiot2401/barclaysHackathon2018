@@ -1,0 +1,72 @@
+package com.diligents.service;
+
+import java.util.List;
+
+import javax.validation.Valid;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.diligents.model.barclaysUsers.Login;
+import com.diligents.model.barclaysUsers.UserInfo;
+import com.diligents.repository.UsersRepository;
+import com.diligents.service.util.LoginValidator;
+import com.diligents.service.util.UserInfoValidator;
+
+@Service("usersService")
+public class UsersServiceImpl implements UsersService {
+
+	@Autowired
+	private UsersRepository usersRepository;
+
+	// @Autowired
+	private UserInfoValidator userInfoValidator = new UserInfoValidator();
+
+	@Override
+	public Login addUser(@Valid Login login) {
+
+		if (!LoginValidator.isValid(login))
+			return null;
+		System.out.println("From addUser = its valid");
+
+		return usersRepository.addUser(login);
+	}
+
+	@Override
+	public @Valid Login register(@Valid Login login) {
+
+		if (!LoginValidator.isValid(login))
+			return null;
+
+		System.out.println("From register = its valid");
+		
+		UserInfo userInfo = login.getUserInfo();
+
+		List<UserInfo> usersInfo = usersRepository.getUsersByEmailId(userInfo.getEmailId());
+		
+		if (usersInfo.size() > 0)
+			return null;
+		System.out.println("From register = no user by that email");
+
+		int userId = usersRepository.getUserIdByEmailId(userInfo.getEmailId());
+		if(userId!=-1)	return null;
+		
+		return addUser(login);
+	}
+
+	@Override
+	public UserInfo validateLogin(@Valid UserInfo userInfo) {
+		return usersRepository.getValidLogin(userInfo.getUserName(), userInfo.getPasswd());
+	}
+
+	@Override
+	public int changePass(String uname, String cpass, String npass) {
+		return usersRepository.changePass(uname, cpass, npass);
+	}
+
+	@Override
+	public int changeMob(String uname, String mcpass, String nmob) {
+		return usersRepository.changeMob(uname, mcpass, nmob);
+	}
+
+}

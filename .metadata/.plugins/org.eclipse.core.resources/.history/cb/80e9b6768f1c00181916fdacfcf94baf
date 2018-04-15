@@ -1,0 +1,5 @@
+package com.diligents.service.util;
+
+public class LoginValidator {
+
+}

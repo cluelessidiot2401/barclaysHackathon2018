@@ -1,0 +1,163 @@
+package com.diligents.service;
+
+import java.util.List;
+
+import javax.validation.Valid;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.diligents.model.barclaysUsers.Login;
+import com.diligents.model.barclaysUsers.LoginDetails;
+import com.diligents.model.barclaysUsers.UserInfo;
+import com.diligents.repository.UsersRepository;
+import com.diligents.service.util.LoginValidator;
+import com.diligents.service.util.UserInfoValidator;
+
+@Service("usersService")
+public class UsersServiceImpl implements UsersService {
+
+	@Autowired
+	private UsersRepository usersRepository;
+
+	// @Autowired
+	private UserInfoValidator userInfoValidator = new UserInfoValidator();
+
+	@Override
+	public Login addUser(@Valid Login login) {
+
+		if (!LoginValidator.isValid(login))
+			return null;
+		System.out.println("From addUser = its valid");
+
+		return usersRepository.addUser(login);
+	}
+
+	@Override
+	public @Valid Login register(@Valid Login login) {
+		System.out.println("\nRegistering Now...\n\n");
+
+		if (!LoginValidator.isValid(login))
+		{
+			System.out.println("loginValidator says not valid");
+			return null;
+		}
+
+		System.out.println("From register = its valid");
+		
+		UserInfo userInfo = login.getUserInfo();
+
+		List<UserInfo> usersInfo = usersRepository.getUsersByEmailId(userInfo.getEmailId());
+		System.out.println(usersInfo.size());
+		
+//		for(int i=0;i<usersInfo.size();++i) {
+//			System.out.println(usersInfo.get(i).getName());
+//		}
+		
+		if (usersInfo.size()>0)
+			return null;
+		System.out.println("From register = no user by that email");
+
+		int userId = usersRepository.getUserIdByEmailId(userInfo.getEmailId());
+		if(userId!=-1)	return null;
+		
+		return addUser(login);
+	}
+
+	@Override
+	public UserInfo addUser(@Valid UserInfo userInfo) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public Login validateLogin(@Valid Login login) {
+		
+		System.out.println("validating\n");
+		
+		UserInfo userInfo = login.getUserInfo();
+		LoginDetails loginDetails = login.getLoginDetails();
+		
+		List<UserInfo> usersInfo = usersRepository.getUsersByEmailId(userInfo.getEmailId());
+		System.out.println(usersInfo.size());
+		if(usersInfo==null || usersInfo.size()==0) {
+			System.out.println("Error while validating");
+			return null;
+		}
+		System.out.println("1 user by Email");
+		System.out.println("\n"+userInfo.getEmailId()+" "+loginDetails.getuPassword());
+		List<LoginDetails> loginDetailsMul = usersRepository.getUserByPasswordAndEmail(userInfo.getEmailId(),loginDetails.getuPassword());
+		System.out.println(loginDetailsMul.size());
+		if(loginDetailsMul==null || loginDetailsMul.size()==0) {
+			return null;
+		}
+		System.out.println("Exiting");
+		
+		login.setUserInfo(usersInfo.get(0));
+		login.setLoginDetails(loginDetailsMul.get(0));
+		
+		return login;
+	}
+
+	@Override
+	public int changePass(String uname, String cpass, String npass) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int changeMob(String uname, String mcpass, String nmob) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public Integer getBalance(String userNameFromFE) {
+		return usersRepository.getBalanceForUId(usersRepository.getUserIdByEmailId(userNameFromFE));
+	}
+
+	@Override
+	public Integer transferFunds(String toAccountNo, int amount, String userName, String myPass) {
+		List<LoginDetails> loginDetailsMul = usersRepository.getUserByPasswordAndEmail(userName,myPass);
+		System.out.println(loginDetailsMul.size());
+		if(loginDetailsMul==null || loginDetailsMul.size()==0) {
+			return 0;
+		}
+		int balance= getBalance(userName);
+		if(balance<amount)	return 0;
+		
+		Integer uIdForReceiver = usersRepository.getUIdFromAccNo(toAccountNo);
+		
+		if(uIdForReceiver==null)	return 0;
+		
+		int newBalanceForReceiver = getBalance(usersRepository.getEmailIdbyUId(uIdForReceiver));
+		newBalanceForReceiver += amount;
+		balance -= amount;
+		
+		usersRepository.updateBalanceForAccNo(toAccountNo,newBalanceForReceiver);
+		
+		usersRepository.updateBalanceForAccNo(usersRepository.getAccNoFromUId(usersRepository.getUserIdByEmailId(userName)), balance);
+		
+		
+		
+		return 1;
+		
+	}
+
+//	@Override
+//	public UserInfo validateLogin(@Valid UserInfo userInfo) {
+//		return usersRepository.getValidLogin(userInfo.getUserName(), userInfo.getPasswd());
+//	}
+//
+//	@Override
+//	public int changePass(String uname, String cpass, String npass) {
+//		return usersRepository.changePass(uname, cpass, npass);
+//	}
+//
+//	@Override
+//	public int changeMob(String uname, String mcpass, String nmob) {
+//		return usersRepository.changeMob(uname, mcpass, nmob);
+//	}
+
+}

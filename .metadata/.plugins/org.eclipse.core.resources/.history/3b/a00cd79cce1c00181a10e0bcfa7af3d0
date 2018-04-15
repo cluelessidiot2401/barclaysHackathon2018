@@ -1,0 +1,23 @@
+package com.diligents.service;
+
+import javax.validation.Valid;
+
+import com.diligents.model.barclaysUsers.Login;
+import com.diligents.model.barclaysUsers.UserInfo;
+
+public interface UsersService {
+	
+	UserInfo addUser(@Valid UserInfo userInfo);
+
+	@Valid Login register(@Valid Login login);
+
+	UserInfo validateLogin(@Valid UserInfo userInfo);
+	
+	int changePass(String uname,String cpass,String npass);
+	
+	int changeMob(String uname,String mcpass,String nmob);
+
+	Login addUser(@Valid Login login);
+
+
+}

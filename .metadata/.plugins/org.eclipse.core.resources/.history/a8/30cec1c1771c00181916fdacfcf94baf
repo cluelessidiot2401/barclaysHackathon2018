@@ -1,0 +1,19 @@
+package com.diligents.model.barclaysUsers;
+
+import javax.validation.constraints.NotNull;
+
+public class Account {
+
+	@NotNull
+	private String accNo;
+
+	@NotNull
+	private int branchId;
+
+	private String accType;
+
+	@NotNull
+	private int balance;
+
+	
+}

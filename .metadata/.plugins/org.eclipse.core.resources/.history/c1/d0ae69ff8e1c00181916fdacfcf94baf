@@ -1,0 +1,6 @@
+package com.diligents.repository;
+
+public interface UsersRepository {
+
+
+}

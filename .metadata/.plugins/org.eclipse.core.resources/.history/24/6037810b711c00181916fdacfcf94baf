@@ -1,0 +1,5 @@
+package com.diligents.model;
+
+public class UserInfo {
+
+}

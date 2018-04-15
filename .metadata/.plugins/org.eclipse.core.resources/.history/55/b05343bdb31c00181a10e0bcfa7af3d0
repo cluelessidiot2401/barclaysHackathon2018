@@ -1,0 +1,51 @@
+
+.container{
+  padding:30%;
+  height:40%;
+}
+
+
+
+
+
+body{
+ font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 20px;
+    color: #eee;  
+    background-color:#fff;
+}
+
+.page-header{
+margin-top:0;
+}
+
+
+.carousel .item {
+  height: 450px;
+}
+
+.item img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height:auto;
+    width:100%;
+}
+
+/
+/*for arrows*/
+.carousel-control {
+  top:50%;
+  width:auto;
+  height:1em;
+  background:transparent;
+}
+.carousel-control .glyphicon-chevron-left, .carousel-control .glyphicon-chevron-right  {
+  position:static;
+  display:block;
+  width:auto;
+}
+.carousel-control .glyphicon-chevron-left:before {
+  margin-left:0;
+}

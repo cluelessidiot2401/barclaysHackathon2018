@@ -1,0 +1,40 @@
+package com.witty4.repository.util;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.RowMapper;
+
+import com.witty4.model.users.UserInfo;
+
+public class UserRowMapper implements RowMapper<UserInfo> {
+
+	@Autowired
+	@Override
+	public UserInfo mapRow(ResultSet rs, int rowNum) throws SQLException {
+
+		// create table userInfo(uid int not null auto_increment primary key, uName
+		// varchar(20) not null,
+		// passwd varchar(60) not null
+		// , enabled enum('0','1'), dob date , district varchar(30) not null, emailId
+		// varchar(30) not null,
+		// mobile varchar(10) not null)
+		// ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Users and global
+		// privileges';
+
+		UserInfo userInfo = new UserInfo();
+
+		userInfo.setUid(rs.getInt("uid"));
+		userInfo.setUserName(rs.getString("uName"));
+		userInfo.setPasswd(rs.getString("passwd"));
+		userInfo.setEnabled(Integer.parseInt(rs.getString("enabled")));
+		userInfo.setDob(rs.getDate("dob").toString());
+		userInfo.setDistrict(rs.getString("district"));
+		userInfo.setEmailId(rs.getString("emailId"));
+		userInfo.setMobile(rs.getString("mobile"));
+
+		return userInfo;
+
+	}
+}

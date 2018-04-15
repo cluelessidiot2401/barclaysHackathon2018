@@ -1,0 +1,27 @@
+package com.diligents.service.util;
+
+import javax.validation.Valid;
+
+import com.diligents.model.barclaysUsers.UserInfo;
+
+public class UserInfoValidator {
+
+	public boolean isValid(@Valid UserInfo userInfo) {
+		
+//		if(userInfo.getUid()==0)	return false;
+//		if(userInfo.getUserName()==null)	return false;
+//		if(userInfo.getPasswd()==null)	return false;
+//		if(userInfo.getDistrict()==null)	return false;
+//		if(userInfo.getEmailId()==null)	return false;
+//		if(userInfo.getMobile()==null || userInfo.getMobile().length()!=10)	return false;
+//		
+//		int year = Integer.parseInt(userInfo.getDob().substring(0, 4));
+//		if(year>2004)	return false;
+//		System.out.println("year = "+year);
+		
+		return true;
+	}
+
+	
+	
+}

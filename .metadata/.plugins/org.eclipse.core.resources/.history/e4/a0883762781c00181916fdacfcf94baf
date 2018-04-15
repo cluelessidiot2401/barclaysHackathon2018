@@ -1,0 +1,5 @@
+package com.diligents.repository.util;
+
+public class AccountRowMapper {
+
+}

@@ -1,0 +1,9 @@
+package com.diligents.model.barclaysUsers;
+
+public class Login {
+	
+	UserInfo userInfo;
+	
+	LoginDetails loginDetails;
+
+}

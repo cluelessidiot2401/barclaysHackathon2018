@@ -1,0 +1,173 @@
+package com.diligents.model.barclaysUsers;
+
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.Range;
+
+public class UserInfo {
+
+	@NotNull
+	private int uId;
+
+	@NotNull
+	private String name;
+
+	@NotNull
+	private String emailId;
+
+	@NotNull
+	private String phoneNo;
+
+	@NotNull
+	@Range(min = 0, max = 1)
+	private int enabled;
+
+	@NotNull
+	private String dob;
+
+	@NotNull
+	private String panNo;
+
+	@NotNull
+	private String gender;
+
+	private String address;
+	
+	@NotNull
+	private String accNo;
+
+	@NotNull
+	private int branchId;
+
+	private String accType;
+
+	@NotNull
+	private int balance;
+
+	@NotNull
+	private String uName;
+
+	@NotNull
+	private String uPassword;
+
+	public String getAccNo() {
+		return accNo;
+	}
+
+	public String getAccType() {
+		return accType;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public int getBalance() {
+		return balance;
+	}
+
+	public int getBranchId() {
+		return branchId;
+	}
+
+	public String getDob() {
+		return dob;
+	}
+
+	public String getEmailId() {
+		return emailId;
+	}
+
+	public int getEnabled() {
+		return enabled;
+	}
+
+	public String getGender() {
+		return gender;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public String getPanNo() {
+		return panNo;
+	}
+
+	public String getPhoneNo() {
+		return phoneNo;
+	}
+
+	public int getuId() {
+		return uId;
+	}
+
+	public String getuName() {
+		return uName;
+	}
+
+	public String getuPassword() {
+		return uPassword;
+	}
+
+	public void setAccNo(String accNo) {
+		this.accNo = accNo;
+	}
+
+	public void setAccType(String accType) {
+		this.accType = accType;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public void setBalance(int balance) {
+		this.balance = balance;
+	}
+
+	public void setBranchId(int branchId) {
+		this.branchId = branchId;
+	}
+
+	public void setDob(String dob) {
+		this.dob = dob;
+	}
+
+	public void setEmailId(String emailId) {
+		this.emailId = emailId;
+	}
+
+	public void setEnabled(int enabled) {
+		this.enabled = enabled;
+	}
+
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public void setPanNo(String panNo) {
+		this.panNo = panNo;
+	}
+
+	public void setPhoneNo(String phoneNo) {
+		this.phoneNo = phoneNo;
+	}
+
+	public void setuId(int uId) {
+		this.uId = uId;
+	}
+
+	public void setuName(String uName) {
+		this.uName = uName;
+	}
+
+	public void setuPassword(String uPassword) {
+		this.uPassword = uPassword;
+	}
+
+}
